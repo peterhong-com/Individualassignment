@@ -33,7 +33,8 @@ public class MainActivity6 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
         text=findViewById(R.id.level5timer);
-        future=5100;
+        future=5000;
+        text.setText(String.valueOf(future));
         Intent previous = getIntent();
         score=previous.getIntExtra("score",0);
 
@@ -77,7 +78,7 @@ public class MainActivity6 extends AppCompatActivity {
             new CountDownTimer(future, 100){
             public void onTick(long millisUntilFinished){
                 future=future-100;
-                second=future/6000;
+                second=future/1000;
                 time=String.valueOf(second);
                 text.setText(String.valueOf(time));
 
@@ -87,19 +88,8 @@ public class MainActivity6 extends AppCompatActivity {
                 for(int i=0; i< buttonList.size(); i++){
                     buttonList.get(i).setClickable(false);
                 }
-                LinearLayout next=findViewById(R.id.linearNext1);
-                Button next1=new Button(getApplicationContext());
-                next1.setText("Next");
-                next.addView(next1);
-                next1.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Intent next = new Intent(getApplicationContext(),MainActivity3.class);
-                        next.putExtra("score",score);
-                        startActivity(next);
-                    }
-                });
-                LinearLayout end =findViewById(R.id.linearEnd1);
+
+                LinearLayout end =findViewById(R.id.linearEnd5);
                 Button end1 = new Button(getApplicationContext());
                 end1.setText("Finish");
                 end.addView(end1);
@@ -122,6 +112,10 @@ public class MainActivity6 extends AppCompatActivity {
                         else if(score>sco.get(sco.size()-1)) {
                             Intent next = new Intent(getApplicationContext(), EnterName.class);
                             next.putExtra("score", score);
+                            startActivity(next);
+                        }
+                        else {
+                            Intent next = new Intent(getApplicationContext(), Rank.class);
                             startActivity(next);
                         }
                     }

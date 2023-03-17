@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.IndividualAssignment">
         <activity
+            android:name=".ScoreBoard"
+            android:exported="false" />
+        <activity
             android:name=".EnterName"
             android:exported="false" />
         <activity

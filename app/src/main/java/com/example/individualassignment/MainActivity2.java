@@ -35,7 +35,8 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_main2);
         score=0;
         text=findViewById(R.id.level1timer);
-        future=5100;
+        future=5000;
+        text.setText(String.valueOf(future));
         button1=findViewById(R.id.level11);
         button2=findViewById(R.id.level12);
         button3=findViewById(R.id.level13);
@@ -53,7 +54,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         new CountDownTimer(future, 100){
             public void onTick(long millisUntilFinished){
                 future=future-100;
-                second=future/6000;
+                second=future/1000;
                 time=String.valueOf(second);
                 text.setText(String.valueOf(time));
 
@@ -85,19 +86,20 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                         Score mySQLiteAdapter = new Score(getApplicationContext());
                         mySQLiteAdapter.openToRead();
                         sco = mySQLiteAdapter.queue();
-                        if(sco.size()==0){
+                        if (sco.size() == 0) {
                             Intent next = new Intent(getApplicationContext(), EnterName.class);
                             next.putExtra("score", score);
                             startActivity(next);
-                        }
-                        else if(sco.size()<25) {
+                        } else if (sco.size() < 25) {
                             Intent next = new Intent(getApplicationContext(), EnterName.class);
                             next.putExtra("score", score);
                             startActivity(next);
-                        }
-                        else if(score>sco.get(sco.size()-1)) {
+                        } else if (score > sco.get(sco.size() - 1)) {
                             Intent next = new Intent(getApplicationContext(), EnterName.class);
                             next.putExtra("score", score);
+                            startActivity(next);
+                        } else {
+                            Intent next = new Intent(getApplicationContext(), Rank.class);
                             startActivity(next);
                         }
                     }
@@ -115,10 +117,9 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
     public void onClick(View v) {
 
             switch (v.getId()){
-                case R.id.level11:{  System.out.println(422);
+                case R.id.level11:{
                     if(target==R.id.level11) {
                         v.setBackgroundColor(Color.parseColor("#03A9F4"));
-                        System.out.println(422);
                         int i = (int) (Math.random() * buttonList.size());
                         target=buttonList.get(i).getId();
                         while (buttonList.get(i).getId() == R.id.level11) {
@@ -128,9 +129,8 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
                         bdNext = buttonList.get(i);
                         bdNext.setBackgroundColor(Color.YELLOW);
                         score++;
-                        System.out.println(score);
                     }
-                    System.out.println(422);
+
                     break;}
                 case R.id.level12: { if(target==R.id.level12) { v.setBackgroundColor(Color.parseColor("#03A9F4"));
                     int i = (int) (Math.random() * buttonList.size());

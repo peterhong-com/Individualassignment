@@ -8,16 +8,28 @@
     tools:context=".MainActivity4">
 
     <LinearLayout
+        android:id="@+id/linearNext3"
+        android:layout_width="144dp"
+        android:layout_height="56dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.179"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.91"></LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/linearEnd3"
         android:layout_width="140dp"
         android:layout_height="59dp"
         android:orientation="vertical"
-        android:id="@+id/linearEnd3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintHorizontal_bias="0.87"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.919"></LinearLayout>
+        app:layout_constraintVertical_bias="0.908"></LinearLayout>
 
     <Button
         android:id="@+id/level31"
@@ -231,9 +243,11 @@
         android:id="@+id/level3timer"
         android:layout_width="134dp"
         android:layout_height="53dp"
-        android:layout_marginTop="16dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.472"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.072" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

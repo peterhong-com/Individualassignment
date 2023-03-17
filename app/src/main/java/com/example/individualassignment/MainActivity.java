@@ -33,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         rank.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent a = new Intent(getApplicationContext(),Rank.class);
+                Intent a = new Intent(getApplicationContext(),ScoreBoard.class);
                 startActivity(a);
             }
         });

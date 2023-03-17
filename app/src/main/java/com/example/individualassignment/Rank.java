@@ -19,10 +19,11 @@ public class Rank extends AppCompatActivity {
         Intent b =getIntent();
         int score = b.getIntExtra("score",0);
         String name=b.getStringExtra("name");
-        System.out.println(b.getStringExtra("name"));
         TextView listContent = new TextView(this);
         Button Retry=new Button(this);
         Retry.setText("Retry");
+        Button home= new Button(this);
+        home.setText("Home");
         LinearLayout ll = new LinearLayout(this);
         ll.setOrientation(LinearLayout.VERTICAL);
         LinearLayout l2= new LinearLayout(this);
@@ -39,8 +40,8 @@ public class Rank extends AppCompatActivity {
         setContentView(ll);
         Score mySQLiteAdapter = new Score(this);
         mySQLiteAdapter.openToWrite();
-        mySQLiteAdapter.insert(score,name);
 
+        mySQLiteAdapter.insert(score,name);
         mySQLiteAdapter.close();
         mySQLiteAdapter = new Score(this);mySQLiteAdapter.openToRead();
         String contentRead = mySQLiteAdapter.queue25();
@@ -48,6 +49,7 @@ public class Rank extends AppCompatActivity {
         listContent.setText(contentRead);
         ll.setPadding(50,50,50,50);
         ll.addView(Retry);
+        ll.addView(home);
         Retry.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -55,6 +57,13 @@ public class Rank extends AppCompatActivity {
                 startActivity(ret);
             }
         });
+        home.setOnClickListener(new View.OnClickListener(){
+        @Override
+        public void onClick(View v) {
+            Intent ret=new Intent(getApplicationContext(),MainActivity.class);
+            startActivity(ret);
+        }
+    });
 
     }
 }
