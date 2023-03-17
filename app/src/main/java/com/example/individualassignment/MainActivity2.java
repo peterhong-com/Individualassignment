@@ -17,7 +17,6 @@ import java.util.ArrayList;
 public class MainActivity2 extends AppCompatActivity implements View.OnClickListener  {
 
     TextView text;
-    int minute;
     int second;
     int future;
     Button button1;
@@ -36,7 +35,7 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         setContentView(R.layout.activity_main2);
         score=0;
         text=findViewById(R.id.level1timer);
-        future=5000;
+        future=5100;
         button1=findViewById(R.id.level11);
         button2=findViewById(R.id.level12);
         button3=findViewById(R.id.level13);
@@ -51,12 +50,11 @@ public class MainActivity2 extends AppCompatActivity implements View.OnClickList
         target= bdNext.getId();
         bdNext.setBackgroundColor(Color.YELLOW);
 
-        new CountDownTimer(future, 1000){
+        new CountDownTimer(future, 100){
             public void onTick(long millisUntilFinished){
-                future=future-1000;
-                minute=future/6000;
-                second=future%6000;
-                time=String.valueOf(minute)+":"+String.valueOf(second);
+                future=future-100;
+                second=future/6000;
+                time=String.valueOf(second);
                 text.setText(String.valueOf(time));
 
 

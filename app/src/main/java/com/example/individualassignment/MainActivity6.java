@@ -15,7 +15,6 @@ import java.util.ArrayList;
 
 public class MainActivity6 extends AppCompatActivity {
     TextView text;
-    int minute;
     int second;
     int future;
     Button button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button12,button11,button13,
@@ -34,7 +33,7 @@ public class MainActivity6 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main6);
         text=findViewById(R.id.level5timer);
-        future=5000;
+        future=5100;
         Intent previous = getIntent();
         score=previous.getIntExtra("score",0);
 
@@ -75,13 +74,13 @@ public class MainActivity6 extends AppCompatActivity {
 
 
 
-        new CountDownTimer(future, 1000){
+            new CountDownTimer(future, 100){
             public void onTick(long millisUntilFinished){
-                future=future-1000;
-                minute=future/6000;
-                second=future%6000;
-                time=String.valueOf(minute)+":"+String.valueOf(second);
+                future=future-100;
+                second=future/6000;
+                time=String.valueOf(second);
                 text.setText(String.valueOf(time));
+
 
             }
             public  void onFinish(){

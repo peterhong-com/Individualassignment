@@ -16,14 +16,12 @@ import java.util.ArrayList;
 public class MainActivity4 extends AppCompatActivity {
 
     TextView text;
-    int minute;
     int second;
     int future;
     Button button1,button2,button3,button4,button5,button6,button7,button8,button9,button10,button12,button11,button13,
             button14,button15,button16;
     Button bdNext;
     String time;
-    View v;
     int target;
     int score;
     ArrayList<Integer> sco = new ArrayList<>();
@@ -34,7 +32,7 @@ public class MainActivity4 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main4);
         text=findViewById(R.id.level3timer);
-        future=5000;
+        future=5100;
         Intent previous = getIntent();
         score=previous.getIntExtra("score",0);
         button1=findViewById(R.id.level31);button2=findViewById(R.id.level32);button3=findViewById(R.id.level33);
@@ -66,13 +64,13 @@ public class MainActivity4 extends AppCompatActivity {
 
         bdNext = buttonList.get(i);
         bdNext.setBackgroundColor(Color.YELLOW);
-        new CountDownTimer(future, 1000){
+        new CountDownTimer(future, 100){
             public void onTick(long millisUntilFinished){
-                future=future-1000;
-                minute=future/6000;
-                second=future%6000;
-                time=String.valueOf(minute)+":"+String.valueOf(second);
+                future=future-100;
+                second=future/6000;
+                time=String.valueOf(second);
                 text.setText(String.valueOf(time));
+
 
             }
             public  void onFinish(){
